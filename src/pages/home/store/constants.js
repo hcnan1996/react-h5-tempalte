@@ -1,0 +1,2 @@
+export const CHANGE_CURRENT_DATA = 'home/CHANGE_CURRENT_DATA';
+export const CHANG_START_INDEX = 'home/CHANG_START_INDEX'
