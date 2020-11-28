@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { changeCurrentData, changeIndex } from "./store/actionCreators";
+import { Container } from './style'
+import './index.css'
+import { Button } from "antd-mobile";
 
 function Home(props) {
   const { testdata, startIndex } = props;
@@ -10,18 +13,21 @@ function Home(props) {
   }, [testdata, startIndex]);
   const haha = (e) => {
     changeDataDispatch({ name: "2222" });
-    changeIndex(2)
+    changeIndex(2);
   };
   return (
     <div>
       ----home----
-  <button onClick={(e) => haha(e)}>redux 测试 数据流 { startIndex }--</button>
+      <Button type="primary">按需导入</Button>
+      <button onClick={(e) => haha(e)}>redux 测试 数据流 {startIndex}--</button>
+      <Container></Container>
+      <div className="box"></div>
     </div>
   );
 }
 const mapStateToProps = (state) => ({
   testdata: state.getIn(["home", "currentData"]).toJS(),
-  startIndex: state.getIn(["home", "startIndex"])
+  startIndex: state.getIn(["home", "startIndex"]),
 });
 // 映射dispatch到props上
 const mapDispatchToProps = (dispatch) => {
@@ -30,8 +36,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(changeCurrentData(data));
     },
     changeIndex(num) {
-      dispatch(changeIndex(num))
-    }
+      dispatch(changeIndex(num));
+    },
   };
 };
 
