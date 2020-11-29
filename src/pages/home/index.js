@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { changeCurrentData, changeIndex } from "./store/actionCreators";
-import { Container } from './style'
-import './index.css'
+import { Container } from "./style";
+import "./index.css";
 import { Button } from "antd-mobile";
+import { BASE_URL } from "../../config/url";
 
 function Home(props) {
   const { testdata, startIndex } = props;
@@ -21,7 +22,7 @@ function Home(props) {
       <Button type="primary">按需导入</Button>
       <button onClick={(e) => haha(e)}>redux 测试 数据流 {startIndex}--</button>
       <Container></Container>
-      <div className="box"></div>
+      <div className="box">{BASE_URL}</div>
     </div>
   );
 }
