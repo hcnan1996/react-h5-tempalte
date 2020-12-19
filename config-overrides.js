@@ -1,8 +1,9 @@
-const { override, fixBabelImports } = require("customize-cra");
+const { override, fixBabelImports, addDecoratorsLegacy } = require("customize-cra");
 const path = require("path");
 const rewirePostcss = require("react-app-rewire-postcss");
 const px2rem = require("postcss-px2rem");
 module.exports = override(
+  addDecoratorsLegacy(),
   fixBabelImports("import", {
     libraryName: "antd-mobile",
     style: "css",
